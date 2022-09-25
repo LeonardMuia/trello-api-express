@@ -1,6 +1,5 @@
 const express = require("express")
 const app = express()
-const axios = require("axios")
 
 const {apiKey, token, idBoard, idList} = {
         "apiKey":"be458debc48b5548caf09c1df8b2db24", /* Enter API Key to Trello's API */
@@ -9,26 +8,17 @@ const {apiKey, token, idBoard, idList} = {
         "idList": "632bb28518f4d100dfd449e9" /* The Board ID */
 }
 
+const getLists = `https://api.trello.com/1/boards/${idBoard}/lists?key=${$apiKey}&token=${token}`
+
 const createCardURL = `https://api.trello.com/1/cards?idList=${idList}&key=${apiKey}&token=${token}`
 
 const getCards = `https://api.trello.com/1/boards/${idBoard}/cards?key=${apiKey}&token=${token}`
 
 
 
-app.get("/get-cards", (req, res) => {
+app.get("/api", (req, res) => {
 
-    axios.get(getCards)
-    .then((response) => {
-        let array = []
-        response.data.map((data) => {
-            array.push(data)
-        })
-
-        res.json({ cards: array })
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+    res.json({"num": [1,2,3]})
    
 })
 
