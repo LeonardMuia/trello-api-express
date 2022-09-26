@@ -10,9 +10,8 @@ function App() {
 
     useEffect(() => {
 
-        const boardsUrl = "https://api.trello.com/1/boards/632bb28518f4d100dfd449e2/lists?key=be458debc48b5548caf09c1df8b2db24&token=6c2b1c972c3aa9be6bf15d9183a32aac0ef736156c5c17320cde6472095e30fb";
-
-        fetch(boardsUrl).then(response => response.json())
+        fetch("/lists")
+        .then(response => response.json())
         .then(data => {
             setLists(data)
           }
@@ -21,6 +20,8 @@ function App() {
         })
 
     }, [])
+
+    console.log(list)
 
     const lists = list.map((data) => {
       return (

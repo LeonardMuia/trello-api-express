@@ -59,9 +59,11 @@ export default(props) => {
 
                 axios.post(createCardURL, {
                     name: title
-                }).then(response => {
-                    successAlert("Success. Refresh page to see changes.")
-                    hideForm
+                }).then(function(response){
+                    if(response.success) {
+                        successAlert("Success. Refresh page to see changes.")
+                        hideForm
+                    }
                 }).catch(error => {
                     errorAlert(error)
                 } )
