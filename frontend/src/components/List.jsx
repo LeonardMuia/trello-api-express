@@ -25,7 +25,14 @@ export default(props) => {
         <Card key={data.id} name={data.name}/>
       )
     })
-    
+
+    const openForm = function (event, id) {
+        const form = document.getElementById(`${id}`); 
+        if(form) {
+            form.style.display = "block";
+        }
+    }
+
     return (
  
         <div className="col-md-4">
@@ -33,12 +40,12 @@ export default(props) => {
                 <div className="card-body">
                     <div className="card--top">
                         <h3 className="card--title">{props.name}</h3>
-                        <div className="card--btn">+ Add</div>
+                        <div className="card--btn" onClick={event => openForm(event, props.idList)}>+ Add</div>
                     </div>
                     <div className="card--items">
-                        { false && <form className="card--form">
+                        <form style={{display:"none"}} id={props.idList} className="card--form">
                             <AddCard />
-                        </form> }
+                        </form>
                         {cards}
                     </div>
                 </div>

@@ -32,7 +32,7 @@ function App() {
       <>
         <TopBar />
         <div className="container main-content">
-          <section className="section cards-section">
+          <section className="section">
                 <div className="row">
                   { list === "undefined" ? <EmptyPage/> : [...lists] }
                 </div>
