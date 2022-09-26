@@ -44,7 +44,7 @@ export default(props) => {
                     </div>
                     <div className="card--items">
                         <form style={{display:"none"}} id={props.idList} className="card--form">
-                            <AddCard />
+                            <AddCard idList={props.idList} />
                         </form>
                         {cards}
                     </div>
