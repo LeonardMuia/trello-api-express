@@ -7,11 +7,17 @@ export default(props) => {
         }
     }
 
+    function submitForm() {
+        const text = document.getElementsByName(`${props.idList}`)[0].value
+        
+        text ? createCard(title) : false;
+    }
+
     return (
         <>
-            <textarea id="" cols="30" rows="2" placeholder={`Enter a title for this card...`} autoFocus></textarea>
+            <textarea name={`{props.idList}`} cols="30" rows="2" placeholder={`Enter a title for this card...`} autoFocus></textarea>
             <div className="form--actions">
-                <div className="card--btn">Add card</div>
+                <div className="card--btn" onClick={submitForm}>Add card</div>
                 <img src="/icons/x.svg" className="close-img-btn" onClick={event => hideForm(event, props.idList)} />
             </div>
         </>
