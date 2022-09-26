@@ -8,6 +8,14 @@ export default(props) => {
 
     useEffect(() => {
 
+        // RestURL https://api.trello.com/1/boards/${idBoard}/cards?key=${apiKey}&token=${token}
+
+        /*
+        * Try making a direct GET request from the RestAPI, passing the name parameter
+        * Test in case you're having issues with CORS
+        * Pass your API variables directly and replace the fetch url with API's url
+        */
+
         fetch('/cards').then(response => response.json())
         .then(data => {
             setCard(data)

@@ -49,7 +49,7 @@ app.get("/v1/cards", async (req, res, next) => {
 
 })
 
-app.post("/status", async(req, res, next) => {
+app.post("/v1/create-card", async(req, res, next) => {
     const options = {
         "method" : "POST"
     }
@@ -60,7 +60,7 @@ app.post("/status", async(req, res, next) => {
                 console.log(error)
             } )
 
-    res.json(response)
+    res.send(response)
 
 })
 

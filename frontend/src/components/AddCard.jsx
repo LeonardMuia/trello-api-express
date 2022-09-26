@@ -55,9 +55,16 @@ export default(props) => {
         const title = document.getElementById(`text-area-${props.idList}`).value
 
         const createCard = function(title) {
-            const createCardURL = `https://api.trello.com/1/cards?idList=${props.idList}&key=be458debc48b5548caf09c1df8b2db24&token=6c2b1c972c3aa9be6bf15d9183a32aac0ef736156c5c17320cde6472095e30fb`;
 
-                axios.post(createCardURL, {
+                // RestURL https://api.trello.com/1/cards?idList=${idList}&key=${apiKey}&token=${token}
+
+                /*
+                * Try making a direct post request to the url, passing the name parameter
+                * Test in case you're having issues with CORS
+                * Pass your API variables directly and replace the fetch url with API's url
+                */
+
+                axios.post("/create-card", {
                     name: title
                 }).then(function(response){
                     if(response.success) {

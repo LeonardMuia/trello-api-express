@@ -8,6 +8,14 @@ function App() {
 
     const [list, setLists] = useState([])
 
+    // Fetching list https://api.trello.com/1/boards/${idBoard}/lists?key=${apiKey}&token=${token}
+
+    /*
+    * Try using the request directly via the link with the credentials
+    * Test in case you're having issues with CORS
+    * Pass your API variables directly and replace the fetch url with API's url
+    */
+
     useEffect(() => {
 
         fetch("/lists")
@@ -20,8 +28,6 @@ function App() {
         })
 
     }, [])
-
-    console.log(list)
 
     const lists = list.map((data) => {
       return (
